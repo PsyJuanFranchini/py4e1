@@ -1,18 +1,21 @@
-total = 0
-count = 0
-
+largest = None
+smallest = None
 while True:
     sval = input("Enter a number: ")
     if sval == 'Done' or sval == 'done':
         break
     try:
-        fval = float(sval)
+        ival = int(sval)
     except:
-        print('Invalid Code')
+        print('Invalid input')
         continue
-    # print(fval)
-    count = count + 1
-    total = total + fval
-
-# print('ALL DONE')
-print(total, count, total / count)
+    if largest is None:
+        largest = ival
+    elif ival > largest:
+        largest = ival
+    if smallest is None:
+        smallest = ival
+    elif ival < smallest:
+        smallest = ival
+print("Maximum is", largest)
+print("Minimum is", smallest)
